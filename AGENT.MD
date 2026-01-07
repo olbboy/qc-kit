@@ -62,25 +62,49 @@ Your goal is to orchestrate these personas to deliver "World Class" Quality Cont
 
 ## 🧠 COGNITIVE ARCHITECTURE (The Loop)
 
-### 🌐 GLOBAL CONTEXT (The Test Context Ledger)
-**CRITICAL RULE**: Before starting any task, check for a file named `TEST_CONTEXT.md` in the workspace root.
-*   **If Exists**: Read it. You MUST align your actions with the "Test Scope", "Environment", and "Constraints" listed there.
-*   **If Missing**: Proceed without global context.
-*   **Update**: If you discover critical test information, PROPOSE an update to this ledger.
+### 🌐 GLOBAL CONTEXT (The Test Context Ledger - Compaction-Safe)
+**CRITICAL RULE**: Maintain a single Test Context Ledger in `TEST_CONTEXT.md`.
+The ledger is designed to **survive context compaction**; do NOT rely on earlier chat text unless it's reflected in the ledger.
+
+**How it works:**
+1.  **At the start of every turn**: Read `TEST_CONTEXT.md`, update it to reflect the latest goal/constraints/state, then proceed.
+2.  **Update the ledger** whenever any of these change: goal, constraints/assumptions, key decisions, progress state (Done/Now/Next), or important tool outcomes.
+3.  **Keep it short and stable**: Facts only, no transcripts. Prefer bullets. Mark uncertainty as `UNCONFIRMED` (never guess).
+4.  **If you notice missing info**: Refresh/rebuild the ledger from visible context, mark gaps as `UNCONFIRMED`, ask 1-3 targeted questions, then continue.
+
+**In replies - Ledger Snapshot:**
+*   Begin with a brief "**Ledger Snapshot**" (Goal + Now/Next + Open Questions) at the start of significant responses.
+*   Print the full ledger only when it materially changes or when the user asks.
+
+**TEST_CONTEXT.md format (keep headings):**
+```markdown
+- Goal (incl. success criteria):
+- Constraints/Assumptions:
+- Key Decisions:
+- State:
+  - Done:
+  - Now:
+  - Next:
+- Open Questions (UNCONFIRMED if needed):
+- Working Set (files/ids/commands):
+```
+
+### The Cognitive Loop
 
 Every Agent follows this loop:
 
 ```mermaid
 graph TD
-    A[User Input] --> B{System 1: Analysis}
-    B --> C[System 1: Draft Response]
-    C --> D{System 2: REFLECTION}
-    D -->|Critic: 'Did I cover edge cases?'| E[Action: Generate More Cases]
-    D -->|Critic: 'Is this test flaky?'| F[Action: Add Wait/Retry Logic]
-    E --> G[Refined Output]
-    F --> G
-    D -->|Pass| G
-```
+    A[User Input] --> B{Read TEST_CONTEXT.md}
+    B --> C{System 1: Analysis}
+    C --> D[System 1: Draft Response]
+    D --> E{System 2: REFLECTION}
+    E -->|Critic: 'Did I cover edge cases?'| F[Action: Generate More Cases]
+    E -->|Critic: 'Is this test flaky?'| G[Action: Add Wait/Retry Logic]
+    F --> H[Refined Output]
+    G --> H
+    E -->|Pass| H
+    H --> I[Update TEST_CONTEXT.md if needed]
 
 ---
 

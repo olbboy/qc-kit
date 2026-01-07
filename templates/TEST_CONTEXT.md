@@ -1,55 +1,109 @@
 # 📒 TEST_CONTEXT.md (The Squad Ledger)
 
-> **Antigravity Protocol Note**: This file serves as the **Shared Test Memory** for all 15 QC Agents.
-> **Rule**: Agents MUST read this file (if it exists) at the start of every task to understand the Global Test Context.
+> **Compaction-Safe Testing Context**
+> This ledger is the canonical test session briefing designed to survive context compaction.
+> **Rule**: Do NOT rely on earlier chat text unless it's reflected in this ledger.
 
 ---
 
-## 1. Current Test Scope
+## Goal (incl. success criteria)
+<!-- What are we trying to achieve? When is testing "done"? -->
 
-**What are we testing?**
-<!-- Example: Sprint 23 features, Login Module, API v2.0 -->
+**Test Goal**: <!-- e.g., Validate Login feature for Sprint 23 -->
+
+**Success Criteria**:
+- [ ] All P0/P1 test cases executed
+- [ ] Pass rate ≥ 95%
+- [ ] No open Critical/Major defects
+- [ ] Coverage ≥ 90%
 
 ---
 
-## 2. Test Environment
+## Constraints/Assumptions
+<!-- What limitations apply? What are we assuming? -->
 
-**Where are we testing?**
+**Constraints**:
+*   <!-- e.g., No access to production database -->
+*   <!-- e.g., Mobile testing limited to iOS only -->
+*   <!-- e.g., Testing window: 3 days -->
 
-| Environment | URL/Details |
-| :--- | :--- |
-| **Dev** | <!-- https://dev.example.com --> |
-| **Staging** | <!-- https://staging.example.com --> |
-| **Production** | <!-- https://example.com --> |
+**Assumptions** (mark `UNCONFIRMED` if uncertain):
+*   <!-- e.g., All users have stable internet (UNCONFIRMED) -->
+*   <!-- e.g., Test data is pre-seeded -->
+
+---
+
+## Key Decisions
+<!-- Important decisions made during testing -->
+
+*   <!-- e.g., Decided to skip Safari testing due to time constraints -->
+*   <!-- e.g., Using Playwright over Cypress for better mobile support -->
+
+---
+
+## State
+
+### Done
+<!-- What has been completed -->
+- [ ] <!-- e.g., Test Plan approved -->
+- [ ] <!-- e.g., Test Environment set up -->
+- [ ] <!-- e.g., Happy path tests completed -->
+
+### Now
+<!-- What is currently in progress -->
+*   <!-- e.g., Running edge case tests for Login -->
+
+### Next
+<!-- What comes after current work -->
+*   <!-- e.g., Security testing for Login -->
+*   <!-- e.g., Performance testing -->
+
+---
+
+## Open Questions (mark UNCONFIRMED if needed)
+<!-- Questions that need answers to proceed -->
+
+1.  <!-- e.g., What's the expected behavior for 3 failed login attempts? (UNCONFIRMED) -->
+2.  <!-- e.g., Is SSO login in scope? -->
+
+---
+
+## Working Set (files/ids/commands)
+<!-- Active files, test IDs, or commands being used -->
+
+**Active Test Files**:
+```
+tests/
+├── login.spec.ts          # ← Current focus
+├── checkout.spec.ts
+└── payment.spec.ts
+```
+
+**Key Test IDs**:
+*   TC-LOGIN-001 to TC-LOGIN-015
+
+**Key Commands**:
+```bash
+npx playwright test --grep @login
+npx k6 run tests/load/login.js
+```
+
+---
+
+## Test Environment
+
+| Environment | URL | Status |
+| :--- | :--- | :---: |
+| **Dev** | <!-- https://dev.example.com --> | ⚪ |
+| **QA** | <!-- https://qa.example.com --> | 🟢 Active |
+| **Staging** | <!-- https://staging.example.com --> | ⚪ |
 
 **Tech Stack**:
-<!-- Example: React 18, Node.js 20, PostgreSQL 16 -->
+*   Frontend: <!-- e.g., React 18 -->
+*   Backend: <!-- e.g., Node.js 20 -->
+*   Database: <!-- e.g., PostgreSQL 16 -->
 
----
-
-## 3. Test Constraints & Assumptions
-
-**What limitations or assumptions apply?**
-
-*   <!-- Example: No access to production database -->
-*   <!-- Example: Mobile testing limited to iOS only -->
-*   <!-- Example: Assume all users have stable internet -->
-
----
-
-## 4. Key Quality Attributes (ISO 25010)
-
-| Attribute | Priority | Target |
-| :--- | :---: | :--- |
-| **Performance** | High | p95 < 500ms |
-| **Security** | High | OWASP Top 10 clean |
-| **Reliability** | Medium | 99.9% uptime |
-| **Usability** | Medium | SUS Score > 80 |
-
----
-
-## 5. Test Accounts & Data
-
+**Test Accounts**:
 | Role | Username | Password |
 | :--- | :--- | :--- |
 | Admin | <!-- admin@test.com --> | <!-- TestPass123! --> |
@@ -57,23 +111,17 @@
 
 ---
 
-## 6. Open Blockers
+## Quality Attributes (ISO 25010)
 
-*   <!-- Example: Payment gateway is down in staging -->
-*   <!-- Example: Test data not seeded for mobile tests -->
-
----
-
-## 7. Working Set (Current Focus)
-
-**What files/features are we actively testing?**
-
-```
-src/
-├── auth/          # ← Focus: Login, Registration
-├── payments/      # ← Focus: Checkout flow
-```
+| Attribute | Priority | Target | Status |
+| :--- | :---: | :--- | :---: |
+| **Performance** | High | p95 < 500ms | ⚪ Not tested |
+| **Security** | High | OWASP Top 10 clean | ⚪ Not tested |
+| **Reliability** | Medium | 99.9% uptime | ⚪ Not tested |
+| **Usability** | Medium | SUS Score > 80 | ⚪ Not tested |
+| **Accessibility** | Medium | WCAG 2.1 AA | ⚪ Not tested |
 
 ---
 
-*Last Updated: <!-- YYYY-MM-DD -->*
+*Last Updated: <!-- YYYY-MM-DD HH:mm -->*
+*Updated By: <!-- Name/Agent -->*
