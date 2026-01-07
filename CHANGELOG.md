@@ -9,31 +9,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2026-01-08
 
-### 🎉 Initial Release - The Cognitive Quality Control Squad
+### 🌟 Gold Release - "The Cognitive Quality Control Squad"
 
-The first production release of QC-Kit, a **Cognitive Squad** of 15 QA/QC Specialists designed for the **Antigravity Native Protocol (ANP)**.
+**Summary**: Full production release of the Antigravity Native Quality Control System. Features 15 specialized agents, System 2 reflection, and compaction-safe continuity protocols.
 
-#### 🤖 15 Agent Workflows
-*   **Commander**: `@qc-master` (Test Strategist)
-*   **Design Squad**: `@qc-strategy`, `@qc-testcase`, `@qc-data`
-*   **Execution Squad**: `@qc-manual`, `@qc-automation`, `@qc-api`, `@qc-performance`, `@qc-security`
-*   **Quality Analysis Squad**: `@qc-bug`, `@qc-root-cause`, `@qc-metrics`, `@qc-regression`
-*   **Reporting Squad**: `@qc-report`, `@qc-review`
+### 🚀 New Features
 
-#### 🧠 System 2 Intelligence
-*   All agents feature **Reflective Cognitive Loops** (Stop & Think)
-*   Tool Mandates for Python, Playwright, k6
-*   Squad Handoffs for intelligent workflow chaining
+#### Core Architecture
+*   **Compaction-Safe Continuity**: Implemented `TEST_CONTEXT.md` ledger protocol.
+*   **Ledger Snapshots**: Agents now provide `Goal/Now/Next` context in replies.
+*   **Error Recovery**: Targeted questioning protocol for ambiguity resolution.
+*   **Tool Mandates**: Enforced usage of Python, Playwright, k6 for verification.
 
-#### 📚 Documentation
-*   `AGENT.MD` - Single source of truth for squad configuration
-*   `README.md` - Project overview and quick start
-*   `QUICK-START.md` - 2-minute setup guide
-*   `docs/agent_cheat_sheet.md` - Quick reference card
+#### Agent Capabilities
+*   **Visual Intelligence**:
+    *   `@qc-manual`: Visual Bug Detection & Accessibility (WCAG) Audits.
+    *   `@qc-automation`: Visual Regression Testing (Snapshot comparisons).
+    *   `@qc-testcase`: UI Screenshot analysis to Test Case generation.
+*   **Mobile Testing**: `@qc-automation` now supports mobile viewports and emulation.
+*   **Contract Testing**: `@qc-api` added Schema Validation and Pact support.
+*   **Evidence Mandate**: `@qc-bug` enforces "Screenshots or it didn't happen".
 
-#### 🟢 Templates
-*   `templates/TEST_CONTEXT.md` - Shared test memory ledger
+#### Documentation & Templates
+*   **Codex**: Added `USAGE-GUIDE.md` (English & Vietnamese).
+*   **Cookbook**: Added `WORKFLOW-COOKBOOK.md` with 10 recipes.
+*   **Knowledge Base**: Added guides for ISTQB, OWASP, Playwright, k6, Metrics.
+*   **Templates**: Added `TEST_PLAN.md`, `BUG_REPORT.md`, `TEST_CONTEXT.md`, `CI_CD_TEMPLATES.md`.
+
+### 🐛 Fixes & Improvements
+*   Standardized `AGENT.MD` as the Single Source of Truth.
+*   Aligned all 15 agents with BA-Kit "Squad" terminology.
+*   Implemented "System 2" (Stop & Think) loops in all workflows.
 
 ---
 
-*Built on the foundation of BA-Kit v2.5.0 architecture.*
+## [0.1.0] - 2026-01-08 (Pre-release)
+
+*   Initial repository setup.
+*   Basic agent workflow definitions.
